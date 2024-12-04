@@ -1,3 +1,4 @@
+import java.lang.reflect.Proxy;
 
 public class Book {
     private String title;
@@ -68,15 +69,63 @@ public class Book {
 
     public String toString() {
 
-        return String.format("%-20s:%s%-20s:%s%-20s:%f%-20s:%s%-20s:%s", "Title", title, "Author", author, "Price", price, "Publisher", publisher, "Isbn", isbn);
+        return String.format("%-19s:%s%-20s:%s%-20s:%.2f%-20s:%s%-20s:%s", "Title", title, "\nAuthor", author, "\nPrice", price, "\nPublisher", publisher, "\nIsbn", isbn);
     }
 
-    public boolean equals(Object obj) {
-        return equals(obj);
+    public boolean equals(Book obj) {
+        if (this == obj ){
+            return true;}
+        if(obj == null || getClass()!= obj.getClass()){
+            return false;
+        }
+        Book book = (Book) obj;
+
+        return Double.compare(book.price, price)==0 &&
+                title.equals(book.title) &&
+                author.equals(book.author) &&
+                publisher.equals(book.publisher) &&
+                isbn.equals(book.isbn);
     }
 
     public Book clone() {
         return new Book(this);
+    }
+    public String getTitle(){
+        return title;
+    }
+    public String setTitle(String title){
+        return this.title = title;
+    }
+    public String getAuthor(){
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }
 
