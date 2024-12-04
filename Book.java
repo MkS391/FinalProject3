@@ -53,22 +53,30 @@ public class Book {
 
     }
 
-    private String toTitleCase(String input) {
-        if (input == null || input.length() == 0) {
-            return input;
-        }
+    public String toTitleCase(String input) {
         String[] words = input.split(" ");
-        StringBuilder titlecase = new StringBuilder();
+
+        String titleCased = "";
+
         for (String word : words) {
-            if (word.length() > 0) {
-                titlecase.append(word.substring(0, 1).toUpperCase());
+            if (!word.isEmpty()) {
+                titleCased += Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + (" ");
             }
         }
-        return titlecase.toString().trim();
-    }
-    public String toString(){
-        return "";
+        return titleCased.trim();
     }
 
+    public String toString() {
+
+        return String.format("%-20s:%s%-20s:%s%-20s:%f%-20s:%s%-20s:%s", "Title", title, "Author", author, "Price", price, "Publisher", publisher, "Isbn", isbn);
+    }
+
+    public boolean equals(Object obj) {
+        return equals(obj);
+    }
+
+    public Book clone() {
+        return new Book(this);
+    }
 }
 
