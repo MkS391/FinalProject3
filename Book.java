@@ -1,5 +1,11 @@
 import java.lang.reflect.Proxy;
 
+/**
+ *
+ *
+ * @author Mkrtich
+ */
+
 public class Book {
     private String title;
     private String author;
@@ -69,7 +75,7 @@ public class Book {
 
     public String toString() {
 
-        return String.format("%-19s:%s%-20s:%s%-20s:%.2f%-20s:%s%-20s:%s", "Title", title, "\nAuthor", author, "\nPrice", price, "\nPublisher", publisher, "\nIsbn", isbn);
+        return String.format("%-14s:%s%-15s:%s%-15s:%.2f$%-15s:%s%-15s:%s", "Title", title, "\nAuthor", author, "\nPrice", price, "\nPublisher", publisher, "\nIsbn", isbn);
     }
 
     public boolean equals(Book obj) {

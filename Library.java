@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ *
+ *
+ * @author Mkrtich
+ */
+
 public class Library {
     private ArrayList<Book> books;
 
@@ -33,5 +39,16 @@ public class Library {
         Library library = (Library) obj;
         return books.equals(library.books);
     }
-    
+
+    public String toString() {
+        return String.format("%s",books);
+    }
+
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
 }
